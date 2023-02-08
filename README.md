@@ -19,6 +19,15 @@ Not used yet
 
 # Exercices: 
 
+## Deleting elements matching a condition:
+https://leetcode.com/problems/delete-duplicate-emails/submissions/894083627/
+```
+DELETE p1 FROM Person p1,
+    Person p2
+WHERE
+    p1.Email = p2.Email AND p1.Id > p2.Id
+```
+
 ## Check that an element does NOT exist in a table (easy)
 https://leetcode.com/problems/customers-who-never-order/submissions/
 
