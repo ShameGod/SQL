@@ -15,9 +15,27 @@ To get the desired results
 ## ORDER BY: 
 To order in ascending or descending order 
 ## LIMIT/ OFFSET:
-Not used yet
+Not used yet:
+
+# Useful functions and tips:
+**sum**: sum of int values used with group by of where
+**Case When**: It is a way of adding if and else statement to an SQL Query. It is the equivalent of doing a Select ... WHERE ..., with the possibility of adding an else statement
+**DATEDIFF**: returns the time difference between two dates
+**LIKE**: to see if the value of a column contains an element
+**Declaring two tables**: declaring two tables isn't a good practice because the result is a table with multiple lines corresponding to all the possible combination. You should rather delare a JOIN.
+
 
 # Exercices: 
+
+## Join operation with the same table: 
+https://leetcode.com/problems/rising-temperature/submissions/894751379/
+
+```
+SELECT w1.id as id
+FROM weather as w1 JOIN weather as w2
+ON DATEDIFF(w1.recordDate, w2.recordDate)=1 
+AND w1.temperature > w2.temperature
+```
 
 ## Deleting elements matching a condition:
 https://leetcode.com/problems/delete-duplicate-emails/submissions/894083627/
