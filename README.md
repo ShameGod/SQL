@@ -17,10 +17,14 @@ To order in ascending or descending order
 ## LIMIT/ OFFSET:
 Not used yet:
 
+# JOINS: 
+![image](https://user-images.githubusercontent.com/42012627/218751410-474d4ffd-b5fe-43d0-aa87-93476fe2d72d.png)
+source: https://dataschool.com/how-to-teach-people-sql/sql-join-types-explained-visually/
+
 # Useful functions and tips:
 * MySQL uses three value logic **True, False, Unknown** when I do a condition on a null value it returns a Unknown result. to evaluate a null value we can use the operator *IS NULL*
 
-* **sum**: sum of int values used with group by of where
+* **Normalisation**: is the process of splitting a table into multiple other tables. For example if we have a table of cars with a column for the engine, we can split the table into one for the cars and another one for the engines, so that the engines can grow separatly of the cars
 
 * **Case When**: It is a way of adding if and else statement to an SQL Query. It is the equivalent of doing a Select ... WHERE ..., with the possibility of adding an else statement
 
