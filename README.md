@@ -77,7 +77,7 @@ DELETE FROM mytable
 WHERE condition; 
 ```
 
-### Create a table: 
+### CREATE a table: 
 * Syntax: 
 ```
 CREATE TABLE IF NOT EXISTS mytable (
@@ -100,6 +100,31 @@ CREATE TABLE IF NOT EXISTS mytable (
     - UNIQUE
     - NOT NULL
     - CHECK
+
+### ALTER a table:
+Very similat to create a table, here is its syntax to :
+* add a column:
+```
+ALTER TABLE mytable
+ADD column DataType OptionalTableConstraint 
+    DEFAULT default_value;
+```
+* remove a column:
+```
+ALTER TABLE mytable
+DROP column_to_be_deleted;
+```
+* rename the table: 
+```
+ALTER TABLE mytable
+RENAME TO new_table_name;
+```
+
+### DROP a table: 
+Different from Delete because it edits the database schema: 
+```
+DROP TABLE IF EXISTS mytable;
+```
 
 ## Aggregate functions:
 
