@@ -56,6 +56,50 @@ Where c.id NOT IN (
     SELECT customerId From Orders 
 )
 ```
+### INSERT syntax: 
+``` INSERT INTO movies VALUES (4, "Toy Story 4", "El Directore", 2015, 90); ```
+### UPDATE syntax: 
+
+**NOTE: It is strongly recommanded to run a SELECT query before an UPDATE query to make sure not to edit an undesired line**
+
+```
+UPDATE mytable
+SET column = value_or_expr, 
+    other_column = another_value_or_expr, 
+    …
+WHERE condition;
+```
+
+### DELETE syntax:
+**NOTE: It is strongly recommanded to run a SELECT query before an UPDATE query to make sure not to edit an undesired line**
+``` 
+DELETE FROM mytable
+WHERE condition; 
+```
+
+### Create a table: 
+* Syntax: 
+```
+CREATE TABLE IF NOT EXISTS mytable (
+    column DataType TableConstraint DEFAULT default_value,
+    another_column DataType TableConstraint DEFAULT default_value,
+    …
+);
+```
+* Data types: each database have its own special types but there are some common types such as 
+    - Integer, Float, Double, Real 
+    - Boolean: Can ce represented as integer (1 for true and 0 for false)
+    - VARCHAR, TEXT
+    - DATE, DATETIME
+    - BLOB: binary objects 
+
+* Contrains: 
+    - PRIMARY KEY
+    - FOREIGN KEY
+    - AUTOINCREMENT
+    - UNIQUE
+    - NOT NULL
+    - CHECK
 
 ## Aggregate functions:
 
@@ -76,6 +120,14 @@ https://leetcode.com/problems/game-play-analysis-i/
 SELECT a.player_id, MIN(a.event_date) as first_login
 FROM Activity as a
 GROUP BY a.player_id
+```
+
+### Distinct:
+https://sqlbolt.com/lesson/select_queries_with_outer_joins task 3
+```
+SELECT DISTINCT Building_name,  role
+FROM buildings LEFT JOIN employees
+ON buildings.building_name=employees.building
 ```
 
 ## Join operation with the same table: 
