@@ -155,6 +155,41 @@ FROM buildings LEFT JOIN employees
 ON buildings.building_name=employees.building
 ```
 
+## Windowing:
+*Definition from wikipedia: a window function or analytic function is a function that uses values from one or more rows to return a value for each row (different from an aggregation function which returns a signe value for multiple rows) Windowing functions have an OVER clause*
+
+syntax: ``` function_name ( * ) OVER window_name ```
+The window_name corresponds to a partition, if there is no window_name the hole table is a signle partition. The function_name is applied to every partition. 
+
+Here is a list of functions that can be used as windowing functions: 
+* For aggregation: AVG, MAX, MIN, SUM, COUNT
+* For Ranking: 
+    * ROW_NUMBER(): assigns a rank to all the rows starting from 1 to the last element. **it requires an OVER clause**. Read this https://www.stratascratch.com/blog/the-ultimate-guide-to-sql-window-functions.
+    * RANK(): Very similar to ROW_NUMBER except the fact that it assigns the same rank to the row with the same value. It also skips ranks. It is usefull for queries like this:
+    ```
+    SELECT from_user,
+       total_emails
+    FROM
+      (SELECT from_user,
+              COUNT(*) AS total_emails,
+              RANK() OVER (
+                           ORDER BY count(*) DESC) rnk
+       FROM google_gmail_emails
+       GROUP BY from_user) a
+    WHERE rnk = 1
+    ```
+* For value: functions that assign values to rows from other rows:
+    * LAG(): Selects the values from the previous table. It needs the rows to be ordered, example: 
+    ```
+    SELECT inspection_date::DATE,
+           COUNT(violation_id),
+           LAG(COUNT(violation_id)) OVER(ORDER BY inspection_date::DATE)
+    FROM sf_restaurant_health_violations
+    GROUP BY 1
+    ```
+    * LEAD(): is the opposite of LAG 
+    * 
+
 ## Join operation with the same table: 
 https://leetcode.com/problems/rising-temperature/submissions/894751379/
 
