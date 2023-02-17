@@ -202,6 +202,15 @@ Here is a list of functions that can be used as windowing functions:
 * DATE_DIFF(): returns the difference in **DAY** between two dates 
 * DATE_FORMAT(): displays dates in different formats. ``` DATE_FORMAT(NOW(),'%b %d %Y %h:%i %p') ```. [here is the list of formats](http://www-db.deis.unibo.it/courses/TW/DOCS/w3schools/sql/func_date_format.asp.html#gsc.tab=0)
 
+## CTE:
+Common Table Expressions enables to define a **named** result set from a qurty and use it in other requests. Note that CTE are similar to subqueries but are more readable. Syntaxe: 
+```
+WITH expression_name[(column_name [,...])]
+AS
+    (CTE_definition)
+SQL_statement;
+```
+
 ## Join operation with the same table: 
 https://leetcode.com/problems/rising-temperature/submissions/894751379/
 
