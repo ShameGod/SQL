@@ -188,7 +188,19 @@ Here is a list of functions that can be used as windowing functions:
     GROUP BY 1
     ```
     * LEAD(): is the opposite of LAG 
-    * 
+    * FIRST_VALUE(): returns the first value of column in a partition and  applies it to all the partition 
+    * LAST_VALUE(): is the opposite of FIRST_VALUE()
+    
+## Date functions:
+* NOW(): returns the current date and time
+* CURDATE(): returns the current date 
+* CURTIME(): returns the current time
+* DATE(): extract the date from a date or a date/time value [example](http://www-db.deis.unibo.it/courses/TW/DOCS/w3schools/sql/func_date.asp.html#gsc.tab=0)
+* EXTRACT(): exctracts a signle part of a date/time. We can extract the following parts *MICROSECONDS, SECONDS, MINUTE, HOUR, DAY, WEEK..*
+* DATE_ADD(): add a specific time interval to a date, ``` DATE_ADD(OrderDate,INTERVAL 30 DAY) ```
+* DATE_SUB(): Same but to substract
+* DATE_DIFF(): returns the difference in **DAY** between two dates 
+* DATE_FORMAT(): displays dates in different formats. ``` DATE_FORMAT(NOW(),'%b %d %Y %h:%i %p') ```. [here is the list of formats](http://www-db.deis.unibo.it/courses/TW/DOCS/w3schools/sql/func_date_format.asp.html#gsc.tab=0)
 
 ## Join operation with the same table: 
 https://leetcode.com/problems/rising-temperature/submissions/894751379/
