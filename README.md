@@ -211,6 +211,32 @@ AS
 SQL_statement;
 ```
 
+## Hard questions explaining: 
+
+### Humain traffic: https://leetcode.com/problems/human-traffic-of-stadium/description/
+An easy solution would be to declare 3 tables and add multiple conditions on them like [this](https://leetcode.com/problems/human-traffic-of-stadium/solutions/583067/lag-and-lead/)
+But I would rather use another solution:
+First lets filter all the line that don't have people > 100.
+Now There are three conditions for a line l to be selected:
+* The two previous lines have more than 100 people
+* The two following lines have more than 100 people 
+* A previous line have more than 100 people the next line has 100 people. 
+
+This translates to the following query: 
+```
+select a.id, a.visit_date, a.people from
+(
+select id, visit_date, people, lag(people,1) over (order by id) as lag_1,
+lag(people,2) over (order by id) as lag_2 , lead(people,1) over (order by id) as lead_1,
+lead(people,2) over (order by id) as lead_2
+from stadium
+) a
+where (people>=100 ) and
+(((a.lag_1 >=100) and (a.lag_2 >=100)) or ((a.lead_1 >=100) and (a.lead_2 >= 100)) or
+((a.lag_1 >=100) and (a.lead_1 >=100)) )
+```
+ 
+
 ## Join operation with the same table: 
 https://leetcode.com/problems/rising-temperature/submissions/894751379/
 
