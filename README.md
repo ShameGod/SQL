@@ -269,6 +269,18 @@ WHERE NOT EXISTS
     WHERE o.customerid=c.id
 )
 ```
+## Using LAG only: 
+https://leetcode.com/problems/consecutive-numbers/solutions/
+
+```
+Select num as ConsecutiveNums
+FROM (
+    SELECT num, LAG(num) OVER () as lag_1, LAG(num,2) OVER () as lag_2
+    FROM Logs
+) derived_table
+WHERE num=lag_1 AND num=lag_2
+GROUP BY num
+```
 
 ## Using GroupBY only: 
 https://leetcode.com/problems/department-highest-salary/submissions/
