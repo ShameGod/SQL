@@ -178,6 +178,8 @@ Here is a list of functions that can be used as windowing functions:
        GROUP BY from_user) a
     WHERE rnk = 1
     ```
+    * DENSE_RANK(): Use this example to understand https://leetcode.com/problems/rank-scores/
+
 * For value: functions that assign values to rows from other rows:
     * LAG(): Selects the values from the previous table. It needs the rows to be ordered, example: 
     ```
