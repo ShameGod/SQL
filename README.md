@@ -22,6 +22,12 @@ Not used yet:
 source: https://dataschool.com/how-to-teach-people-sql/sql-join-types-explained-visually/
 
 # Useful functions and tips:
+
+* **GROUP BY settings**:
+    * *only_full_group_by* = on tells MySQL engine: Do not apply GROUP BY when you have doubt about what results to show and throw an error. Only apply it if Group     By specifically tells you what to do. i.e. when the Group By is full and perfect!
+
+    * *only_full_group_by* = off tells MySQL engine: always apply GROUP BY and if you have doubt about what results to choose, just pick one randomly!
+
 * MySQL uses three value logic **True, False, Unknown** when I do a condition on a null value it returns a Unknown result. to evaluate a null value we can use the operator *IS NULL*
 
 * **Normalisation**: is the process of splitting a table into multiple other tables. For example if we have a table of cars with a column for the engine, we can split the table into one for the cars and another one for the engines, so that the engines can grow separatly of the cars
