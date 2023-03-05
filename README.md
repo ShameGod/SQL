@@ -210,6 +210,28 @@ Here is a list of functions that can be used as windowing functions:
 * DATE_DIFF(): returns the difference in **DAY** between two dates 
 * DATE_FORMAT(): displays dates in different formats. ``` DATE_FORMAT(NOW(),'%b %d %Y %h:%i %p') ```. [here is the list of formats](http://www-db.deis.unibo.it/courses/TW/DOCS/w3schools/sql/func_date_format.asp.html#gsc.tab=0)
 
+## String functions:
+https://www.hackerrank.com/challenges/the-pads/problem?isFullScreen=true
+
+* CONCAT: to concat columns data with strings 
+* LOWER: to lower case 
+
+```
+select 
+    concat(name,'(',left(occupation,1),')') 
+    as a
+from occupations
+
+union
+
+select 
+    concat('There are a total of ',count(occupation),' ',lower(occupation),'s.') 
+    as b
+from occupations 
+group by occupation
+order by a;
+```
+
 ## CTE:
 Common Table Expressions enables to define a **named** result set from a qurty and use it in other requests. Note that CTE are similar to subqueries but are more readable. Syntaxe: 
 ```
